@@ -1,27 +1,25 @@
-// 1. declare variables
-
-let iconHeart: boolean = true // take notes
-
-// 2. detect & handle events
+let sleep: boolean = true
 
 input.onButtonPressed(Button.A, function () {
-    if (iconHeart) {
-        iconHeart = false
-    } else {
-        iconHeart = true
-    }
+    sleep = true
 })
-// 3. main program/ forever loop/ functions
-
-basic.forever(function () {
-    if (iconHeart) {
-        basic.showIcon(IconNames.Heart)
-    } else {
-        basic.showIcon(IconNames.Sword)
-    }
+input.onButtonPressed(Button.B, function () {
+    sleep = false
+})
 
 
+function saver1() {
+    basic.showIcon(IconNames.Heart)
     basic.pause(100)
     basic.clearScreen()
-})
+}
 
+
+basic.forever(function () {
+    if (sleep) {
+        saver1()
+    }
+    else {
+        basic.showString("Working")
+    }
+})
