@@ -14,10 +14,22 @@ function saver1() {
     basic.clearScreen()
 }
 
+function saver2() {
+    let sprite = game.createSprite(Math.randomRange(0, 4), Math.randomRange(0, 4))
+    if (Math.randomBoolean()) {
+        sprite.turn(Direction.Right, 45)        
+    } else {
+        sprite.turn(Direction.Left, 45)
+    }
+    sprite.move(2)
+    sprite.ifOnEdgeBounce()
+    basic.pause(200)
+    sprite.delete()
+}
 
 basic.forever(function () {
     if (sleep) {
-        saver1()
+        saver2()
     }
     else {
         basic.showString("Working")
